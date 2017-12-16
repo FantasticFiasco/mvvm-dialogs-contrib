@@ -13,7 +13,7 @@ msbuild $NETPROJECT /t:Rebuild /p:'Configuration=Release;TargetFrameworkVersion=
 msbuild $NETPROJECT /t:Rebuild /p:'Configuration=Release;TargetFrameworkVersion=v3.5' /m /logger:$LOGGER
 
 Write-Host 'Pack NuGet...'
-Write-Host $APPVEYOR_REPO_BRANCH
+Write-Host $ENV:APPVEYOR_REPO_BRANCH
 # if ($APPVEYOR_REPO_BRANCH != 'master') {
 #     Write-Host 'Is on master'
 # }
