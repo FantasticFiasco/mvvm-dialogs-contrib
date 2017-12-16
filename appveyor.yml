@@ -1,1 +1,10 @@
+#---------------------------------#
+#    environment configuration    #
+#---------------------------------#
 image: Visual Studio 2017
+
+#---------------------------------#
+#       build configuration       #
+#---------------------------------#
+build_script:
+  - ps: .\build\build.ps1
