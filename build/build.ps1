@@ -1,1 +1,5 @@
-Write-Host "Hello world"
+$SOLUTION = MvvmDialogs.sln
+$NETPROJECT = src\net\MvvmDialogs.Contrib.csproj
+$LOGGER = C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll
+
+nuget restore $SOLUTION
