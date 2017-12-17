@@ -69,7 +69,7 @@ Task("Test")
             "./**/bin/" + configuration + "/*Test.dll",
             new NUnit3Settings
             {
-                Verbose = true
+                NoResults = true
             });
     });
 
