@@ -3,8 +3,27 @@
 #---------------------------------#
 image: Visual Studio 2017
 
+
 #---------------------------------#
 #       build configuration       #
 #---------------------------------#
 build_script:
   - ps: .\build\build.ps1
+
+
+#---------------------------------#
+#       tests configuration       #
+#---------------------------------#
+test:
+  assemblies: '**\bin\Release\*Test.dll'
+  categories:
+    except:
+      - Manual
+
+
+#---------------------------------#
+#      artifacts configuration    #
+#---------------------------------#
+artifacts:
+  - path: '*.nupkg'
+    name: NuGet
