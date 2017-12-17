@@ -13,9 +13,9 @@ Write-Host 'Build for additional .NET versions...' -ForegroundColor Green
 msbuild $NETPROJECT /t:Rebuild /p:'Configuration=Release;TargetFrameworkVersion=v4.0' /m /logger:$LOGGER
 msbuild $NETPROJECT /t:Rebuild /p:'Configuration=Release;TargetFrameworkVersion=v3.5' /m /logger:$LOGGER
 
-Write-Host 'Create NuGet package...'
+Write-Host 'Create NuGet package...' -ForegroundColor Green
 if ($ENV:APPVEYOR_REPO_BRANCH -ne  'master') {
     $VERSION_SUFFIX = '-' + $ENV:APPVEYOR_BUILD_ID
 }
 
-nuget pack $NUSPEC -version 'test$VERSION_SUFFIX'
+nuget pack $NUSPEC -version test$VERSION_SUFFIX
