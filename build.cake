@@ -80,7 +80,7 @@ Task("Pack")
         if (branch != "master")
         {
             var sha = EnvironmentVariable("APPVEYOR_REPO_COMMIT");
-            version += $"-build-{sha}";
+            version += $"-sha-{sha}";
         }
 
         NuGetPack(
