@@ -17,7 +17,6 @@
 [Rr]eleases/
 x64/
 x86/
-build/
 bld/
 [Bb]in/
 [Oo]bj/
@@ -28,6 +27,7 @@ bld/
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
+TestResult.xml
 
 # ASP.NET 5
 project.lock.json
@@ -39,3 +39,6 @@ artifacts/
 
 # ReSharper
 src/_ReSharper.Caches/
+
+# Cake
+tools/

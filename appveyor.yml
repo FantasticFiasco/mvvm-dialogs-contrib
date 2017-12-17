@@ -1,0 +1,32 @@
+#---------------------------------#
+#           environment           #
+#---------------------------------#
+image: Visual Studio 2017
+
+
+#---------------------------------#
+#              build              #
+#---------------------------------#
+build_script:
+  - cmd: PowerShell -Version 2.0 .\build.ps1
+
+
+#---------------------------------#
+#             artifacts           #
+#---------------------------------#
+artifacts:
+  - path: '*.nupkg'
+    name: NuGet
+
+
+#---------------------------------#
+#              deploy             #
+#---------------------------------#
+deploy:
+  provider: NuGet
+  api_key:
+    secure: w03iihR+NLHSJiP8NBsL0uGT8BEvjPUFOQok69hVhHARvwYpc0pCyV2UnjNiJSC7
+  skip_symbols: false
+  artifact: /.*\.nupkg/
+  on:
+    appveyor_repo_tag: true

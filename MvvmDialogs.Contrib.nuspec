@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>MvvmDialogs.Contrib</id>
+    <version>0.0.1</version>
+    <authors>MVVM Dialogs contributors</authors>
+    <title>MVVM Dialogs Contrib</title>
+    <language>en-US</language>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <projectUrl>https://github.com/FantasticFiasco/mvvm-dialogs-contrib</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/FantasticFiasco/mvvm-dialogs-contrib/master/build/icon_32x32.png</iconUrl>
+    <copyright>Copyright © 2017 MVVM Dialogs contributors</copyright>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Features and functionality complementing MVVM Dialogs</description>
+    <releaseNotes>For release notes, please see the change log on GitHub.</releaseNotes>
+    <tags>wpf uwp mvvm dialog window messagebox openfiledialog savefiledialog folderbrowserdialog messagedialog contentdialog fileopenpicker filesavepicker folderpicker</tags>
+  </metadata>
+  <files>
+    <!-- .NET -->
+    <file src="src\net\bin\Release\net35\MvvmDialogs.Contrib.dll" target="lib\net35\MvvmDialogs.Contrib.dll" />
+    <file src="src\net\bin\Release\net35\MvvmDialogs.Contrib.xml" target="lib\net35\MvvmDialogs.Contrib.xml" />
+    <file src="src\net\bin\Release\net40\MvvmDialogs.Contrib.dll" target="lib\net40\MvvmDialogs.Contrib.dll" />
+    <file src="src\net\bin\Release\net40\MvvmDialogs.Contrib.xml" target="lib\net40\MvvmDialogs.Contrib.xml" />
+    <file src="src\net\bin\Release\net45\MvvmDialogs.Contrib.dll" target="lib\net45\MvvmDialogs.Contrib.dll" />
+    <file src="src\net\bin\Release\net45\MvvmDialogs.Contrib.xml" target="lib\net45\MvvmDialogs.Contrib.xml" />
+  </files>
+</package>
