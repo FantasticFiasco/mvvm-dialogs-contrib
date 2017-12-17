@@ -61,9 +61,12 @@ Task("Test")
     .IsDependentOn("Build")
     .Does(() =>
     {
-        var settings = new NUnit3Settings { NoResults = true };
-
-        NUnit3("./**/bin/" + configuration + "/*Test.dll", settings);
+        NUnit3(
+            "./**/bin/" + configuration + "/*Test.dll",
+            new NUnit3Settings
+            {
+                NoResults = true
+            });
     });
 
 Task("Pack")
