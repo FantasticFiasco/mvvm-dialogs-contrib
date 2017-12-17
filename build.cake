@@ -1,4 +1,4 @@
-#tool nuget:?package=NUnit.Console&include=../Nunit.ConsoleRunner/**/*
+#tool nuget:?package=Nunit.ConsoleRunner
 #load "build/utils.cake"
 
 using System.Text.RegularExpressions;
@@ -65,7 +65,12 @@ Task("Test")
     .IsDependentOn("Build")
     .Does(() =>
     {
-        NUnit3("./**/bin/" + configuration + "/*Test.dll");
+        NUnit3(
+            "./**/bin/" + configuration + "/*Test.dll",
+            new NUnit3Settings
+            {
+                Verbose = true
+            });
     });
 
 Task("Pack")
