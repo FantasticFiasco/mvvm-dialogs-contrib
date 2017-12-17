@@ -5,7 +5,8 @@
 //////////////////////////////////////////////////////////////////////
 
 var solution = new FilePath("./MvvmDialogs.Contrib.sln");
-var configuration = Argument("configuration", "Release");
+var netProject = new FilePath("./src/net/MvvmDialogs.Contrib.csproj");
+var configuration = Argument("Configuration", "Release");
 
 //////////////////////////////////////////////////////////////////////
 // TASKS
@@ -25,6 +26,27 @@ Task("Build")
         MSBuild(solution, settings => settings
             .SetConfiguration(configuration)
             .SetMaxCpuCount(0));    // Enable parallel build
+
+        // Build for .NET version 4.0
+        MSBuild(netProject, settings => settings
+            .SetConfiguration(configuration)
+            .WithProperty("TargetFrameworkVersion", "v4.0")
+            .SetMaxCpuCount(0));    // Enable parallel build
+
+        // Build for .NET version 3.5
+        MSBuild(netProject, settings => settings
+            .SetConfiguration(configuration)
+            .WithProperty("TargetFrameworkVersion", "v3.5")
+            .SetMaxCpuCount(0));    // Enable parallel build
+    });
+
+Task("Test")
+    .IsDependentOn("Build")
+    .Does(() =>
+    {
+        var settings = new NUnit3Settings { NoResults = true };
+
+        NUnit3("./**/bin/" + configuration + "/*Test.dll", settings);
     });
 
 //////////////////////////////////////////////////////////////////////
@@ -32,7 +54,7 @@ Task("Build")
 //////////////////////////////////////////////////////////////////////
 
 Task("Default")
-    .IsDependentOn("Build");
+    .IsDependentOn("Test");
 
 //////////////////////////////////////////////////////////////////////
 // EXECUTION
