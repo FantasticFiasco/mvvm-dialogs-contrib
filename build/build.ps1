@@ -18,4 +18,4 @@ if ($ENV:APPVEYOR_REPO_BRANCH -ne  'master') {
     $VERSION_SUFFIX = '-' + $ENV:APPVEYOR_BUILD_ID
 }
 
-nuget pack $NUSPEC -version test$VERSION_SUFFIX
+nuget pack $NUSPEC -version 0.0.1$VERSION_SUFFIX
