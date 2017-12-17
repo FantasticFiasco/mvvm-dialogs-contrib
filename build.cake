@@ -81,7 +81,13 @@ Task("Pack")
             version += $"-{id}";
         }
 
-        NuGetPack(nugetSpecification, new NuGetPackSettings { Version = version });
+        NuGetPack(
+            nugetSpecification,
+            new NuGetPackSettings
+            {
+                Version = version,
+                Symbols = true
+            });
     });
 
 //////////////////////////////////////////////////////////////////////
