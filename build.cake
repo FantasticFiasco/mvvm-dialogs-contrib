@@ -70,7 +70,7 @@ Task("Test")
     });
 
 Task("Pack")
-    .IsDependentOn("Build")
+    .IsDependentOn("Test")
     .Does(() =>
     {
         var version = GetAssemblyVersion("./SolutionInfo.cs");
