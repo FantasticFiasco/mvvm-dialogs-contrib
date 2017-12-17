@@ -45,7 +45,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <RunCodeAnalysis>true</RunCodeAnalysis>
-    <CodeAnalysisRuleSet>..\..\MvvmDialogs.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>..\..\MvvmDialogs.Contrib.ruleset</CodeAnalysisRuleSet>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <DocumentationFile Condition="'$(TargetFrameworkVersion)' == 'v3.5'">bin\Release\net35\MvvmDialogs.xml</DocumentationFile>
     <DocumentationFile Condition="'$(TargetFrameworkVersion)' == 'v4.0'">bin\Release\net40\MvvmDialogs.xml</DocumentationFile>

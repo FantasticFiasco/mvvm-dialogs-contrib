@@ -8,17 +8,13 @@ image: Visual Studio 2017
 #       build configuration       #
 #---------------------------------#
 build_script:
-  - ps: .\build\build.ps1
+  - cmd: PowerShell -Version 2.0 .\build.ps1
 
 
 #---------------------------------#
 #       tests configuration       #
 #---------------------------------#
-test:
-  assemblies: '**\bin\Release\*Test.dll'
-  categories:
-    except:
-      - Manual
+test: off
 
 
 #---------------------------------#

@@ -38,3 +38,6 @@ artifacts/
 
 # ReSharper
 src/_ReSharper.Caches/
+
+# Cake
+tools/
