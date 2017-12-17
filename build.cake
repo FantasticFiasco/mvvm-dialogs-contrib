@@ -1,18 +1,36 @@
 #tool nuget:?package=NUnit.ConsoleRunner&version=3.4.0
+#load "build/utils.cake"
+
+using System.Text.RegularExpressions;
 
 //////////////////////////////////////////////////////////////////////
 // ARGUMENTS
 //////////////////////////////////////////////////////////////////////
 
+var target = Argument("target", "Default");
+var configuration = Argument("configuration", "Release");
+
+//////////////////////////////////////////////////////////////////////
+// VARIABLES
+//////////////////////////////////////////////////////////////////////
+
 var solution = new FilePath("./MvvmDialogs.Contrib.sln");
 var netProject = new FilePath("./src/net/MvvmDialogs.Contrib.csproj");
-var configuration = Argument("Configuration", "Release");
+var nugetSpecification = new FilePath("./MvvmDialogs.Contrib.nuspec");
 
 //////////////////////////////////////////////////////////////////////
 // TASKS
 //////////////////////////////////////////////////////////////////////
 
+Task("Clean")
+    .Does (() =>
+    {
+	    CleanDirectories("./**/bin");
+	    CleanDirectories("./**/obj");
+    });
+
 Task("Restore NuGet packages")
+    .IsDependentOn("Clean")
     .Does(() =>
     {
         NuGetRestore(solution);
@@ -49,15 +67,32 @@ Task("Test")
         NUnit3("./**/bin/" + configuration + "/*Test.dll", settings);
     });
 
+Task("Pack")
+    .IsDependentOn("Build")
+    .Does(() =>
+    {
+        var version = GetAssemblyVersion("./SolutionInfo.cs");
+        var tagName = GetGitTagName();
+
+        // Unless build was trigged by a git tag, this is a pre-release
+        if (tagName == null)
+        {
+            var id = EnvironmentVariable("APPVEYOR_BUILD_ID");
+            version += $"-{id}";
+        }
+
+        NuGetPack(nugetSpecification, new NuGetPackSettings { Version = version });
+    });
+
 //////////////////////////////////////////////////////////////////////
 // TASK TARGETS
 //////////////////////////////////////////////////////////////////////
 
 Task("Default")
-    .IsDependentOn("Test");
+    .IsDependentOn("Pack");
 
 //////////////////////////////////////////////////////////////////////
 // EXECUTION
 //////////////////////////////////////////////////////////////////////
 
-RunTarget(Argument("target", "Default"));
+RunTarget(target);
