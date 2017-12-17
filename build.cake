@@ -77,7 +77,7 @@ Task("Pack")
         // Unless build was trigged by a git tag, this is a pre-release
         if (tagName == null)
         {
-            var id = EnvironmentVariable("APPVEYOR_BUILD_ID");
+            var id = EnvironmentVariable("APPVEYOR_REPO_COMMIT");
             version += $"-{id}";
         }
 
