@@ -3,14 +3,6 @@
 #---------------------------------#
 image: Visual Studio 2017
 
-environment:
-  nuget-api-key:
-    secure: bqvXEmg4DmMbqRLDuBAYpe1iFgrlv0LmvQuYZ9DEtsdJqRStvMVgpVGQi6vPskCxK/tvUPVv/sLwzBu/osnAIg==
-
-install:
-  - nuget install secure-file -ExcludeVersion
-  - secure-file\tools\secure-file -decrypt .\nuget-api-key.enc -secret %nuget-api-key%
-
 
 #---------------------------------#
 #              build              #
