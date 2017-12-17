@@ -16,7 +16,6 @@ var configuration = Argument("configuration", "Release");
 
 var solution = new FilePath("./MvvmDialogs.Contrib.sln");
 var netProject = new FilePath("./src/net/MvvmDialogs.Contrib.csproj");
-var nugetSpecification = new FilePath("./MvvmDialogs.Contrib.nuspec");
 
 //////////////////////////////////////////////////////////////////////
 // TASKS
@@ -72,17 +71,17 @@ Task("Pack")
     .Does(() =>
     {
         var version = GetAssemblyVersion("./SolutionInfo.cs");
-        var tagName = GetGitTagName();
+        var branch = EnvironmentVariable("APPVEYOR_REPO_BRANCH");
 
-        // Unless build was trigged by a git tag, this is a pre-release
-        if (tagName == null)
+        // Unless on master, this is a pre-release
+        if (branch != "master")
         {
             var id = EnvironmentVariable("APPVEYOR_BUILD_ID");
             version += $"-{id}";
         }
 
         NuGetPack(
-            nugetSpecification,
+            "./MvvmDialogs.Contrib.nuspec",
             new NuGetPackSettings
             {
                 Version = version,

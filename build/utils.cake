@@ -13,11 +13,3 @@ public string GetAssemblyVersion(string filePath)
 
     return $"{major}.{minor}.{patch}";
 }
-
-public string GetGitTagName()
-{
-    var tag =  EnvironmentVariable("APPVEYOR_REPO_TAG");
-    var tagName = EnvironmentVariable("APPVEYOR_REPO_TAG_NAME");
-
-    return tag == "true" ? tagName : null;
-}
