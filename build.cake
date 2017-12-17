@@ -22,13 +22,15 @@ var netProject = new FilePath("./src/net/MvvmDialogs.Contrib.csproj");
 //////////////////////////////////////////////////////////////////////
 
 Task("Clean")
+    .Description("Clean all files")
     .Does (() =>
     {
 	    CleanDirectories("./**/bin");
 	    CleanDirectories("./**/obj");
     });
 
-Task("Restore NuGet packages")
+Task("Restore")
+    .Description("Restore NuGet packages")
     .IsDependentOn("Clean")
     .Does(() =>
     {
@@ -36,7 +38,8 @@ Task("Restore NuGet packages")
     });
 
 Task("Build")
-    .IsDependentOn("Restore NuGet packages")
+    .Description("Build the solution")
+    .IsDependentOn("Restore")
     .Does(() =>
     {
         // Build for default .NET version
@@ -58,18 +61,15 @@ Task("Build")
     });
 
 Task("Test")
+    .Description("Run all tests")
     .IsDependentOn("Build")
     .Does(() =>
     {
-        NUnit3(
-            "./**/bin/" + configuration + "/*Test.dll",
-            new NUnit3Settings
-            {
-                NoResults = true
-            });
+        NUnit3("./**/bin/" + configuration + "/*Test.dll");
     });
 
 Task("Pack")
+    .Description("Create NuGet package")
     .IsDependentOn("Test")
     .Does(() =>
     {
