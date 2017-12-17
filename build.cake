@@ -79,8 +79,8 @@ Task("Pack")
         // Unless on master, this is a pre-release
         if (branch != "master")
         {
-            var id = EnvironmentVariable("APPVEYOR_BUILD_ID");
-            version += $"-{id}";
+            var sha = EnvironmentVariable("APPVEYOR_REPO_COMMIT");
+            version += $"-build-{sha}";
         }
 
         NuGetPack(
