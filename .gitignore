@@ -27,6 +27,7 @@ bld/
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
+TestResult.xml
 
 # ASP.NET 5
 project.lock.json

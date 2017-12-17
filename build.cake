@@ -1,4 +1,4 @@
-#tool "nuget:?package=NUnit.ConsoleRunner"
+#tool nuget:?package=NUnit.Console&include=../Nunit.ConsoleRunner/**/*
 #load "build/utils.cake"
 
 using System.Text.RegularExpressions;
