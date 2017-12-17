@@ -1,7 +1,4 @@
-#tool nuget:?package=Nunit.ConsoleRunner
 #load "build/utils.cake"
-
-using System.Text.RegularExpressions;
 
 //////////////////////////////////////////////////////////////////////
 // ARGUMENTS
@@ -60,22 +57,9 @@ Task("Build")
             .SetMaxCpuCount(0));    // Enable parallel build
     });
 
-Task("Test")
-    .Description("Run all tests")
-    .IsDependentOn("Build")
-    .Does(() =>
-    {
-        NUnit3(
-            "./**/bin/" + configuration + "/*Test.dll",
-            new NUnit3Settings
-            {
-                NoResults = true
-            });
-    });
-
 Task("Pack")
     .Description("Create NuGet package")
-    .IsDependentOn("Test")
+    .IsDependentOn("Build")
     .Does(() =>
     {
         var version = GetAssemblyVersion("./SolutionInfo.cs");

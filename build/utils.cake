@@ -1,5 +1,7 @@
 #addin "Cake.FileHelpers"
 
+using System.Text.RegularExpressions;
+
 public string GetAssemblyVersion(string filePath)
 {
     var versionNumbers = FindRegexMatchesGroupsInFile(
