@@ -42,3 +42,4 @@ src/_ReSharper.Caches/
 
 # Cake
 tools/
+/test/net/nunit
