@@ -8,7 +8,7 @@ using System.Runtime.CompilerServices;
 // associated with an assembly.
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("MVVM Dialogs Contrib")]
-[assembly: AssemblyCopyright("Copyright © 2017 MVVM Dialogs contributors")]
+[assembly: AssemblyCopyright("Copyright © 2017-2018 MVVM Dialogs contributors")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
