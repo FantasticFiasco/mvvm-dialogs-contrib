@@ -4,7 +4,7 @@ using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-namespace ShellFileDialogs
+namespace MvvmDialogs.ComShellDialogs
 {
 	[ComImport]
 	[Guid(ShellIIDGuid.IPropertyEnumTypeList)]

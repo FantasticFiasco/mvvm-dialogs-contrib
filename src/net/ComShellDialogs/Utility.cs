@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-namespace ShellFileDialogs
+namespace MvvmDialogs.ComShellDialogs
 {
 	internal static class Utility
 	{

@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace ShellFileDialogs
+namespace MvvmDialogs.ComShellDialogs
 {
 	[StructLayout( LayoutKind.Sequential, CharSet = CharSet.Auto )]
 	internal struct FilterSpec

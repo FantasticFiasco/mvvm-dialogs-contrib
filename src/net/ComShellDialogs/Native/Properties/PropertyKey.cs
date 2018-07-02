@@ -3,7 +3,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace ShellFileDialogs
+namespace MvvmDialogs.ComShellDialogs
 {
 	/// <summary>
 	/// Defines a unique key for a Shell Property

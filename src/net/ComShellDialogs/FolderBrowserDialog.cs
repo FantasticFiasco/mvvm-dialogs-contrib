@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace ShellFileDialogs
+namespace MvvmDialogs.ComShellDialogs
 {
 	public static class FolderBrowserDialog
 	{
