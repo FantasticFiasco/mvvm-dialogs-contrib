@@ -102,6 +102,38 @@
     <Compile Include="..\..\SolutionInfo.cs">
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
+    <Compile Include="ComShellDialogs\FileOpenDialog.cs" />
+    <Compile Include="ComShellDialogs\FileSaveDialog.cs" />
+    <Compile Include="ComShellDialogs\FolderBrowserDialog.cs" />
+    <Compile Include="ComShellDialogs\Native\Enums.cs" />
+    <Compile Include="ComShellDialogs\Native\FileOpenDialogRCW.cs" />
+    <Compile Include="ComShellDialogs\Native\FileSaveDialogRCW.cs" />
+    <Compile Include="ComShellDialogs\Native\Filter.cs" />
+    <Compile Include="ComShellDialogs\Native\FilterSpec.cs" />
+    <Compile Include="ComShellDialogs\Native\Identifiers.cs" />
+    <Compile Include="ComShellDialogs\Native\IEnumIdList.cs" />
+    <Compile Include="ComShellDialogs\Native\IFileDialog.cs" />
+    <Compile Include="ComShellDialogs\Native\IFileDialogEvents.cs" />
+    <Compile Include="ComShellDialogs\Native\IFileOpenDialog.cs" />
+    <Compile Include="ComShellDialogs\Native\IFileSaveDialog.cs" />
+    <Compile Include="ComShellDialogs\Native\IModalWindow.cs" />
+    <Compile Include="ComShellDialogs\Native\IShellFolder.cs" />
+    <Compile Include="ComShellDialogs\Native\IShellItem.cs" />
+    <Compile Include="ComShellDialogs\Native\IShellItem2.cs" />
+    <Compile Include="ComShellDialogs\Native\IShellItemArray.cs" />
+    <Compile Include="ComShellDialogs\Native\NativeFileOpenDialog.cs" />
+    <Compile Include="ComShellDialogs\Native\NativeFileSaveDialog.cs" />
+    <Compile Include="ComShellDialogs\Native\NativeMethods.cs" />
+    <Compile Include="ComShellDialogs\Native\Properties\Enums.cs" />
+    <Compile Include="ComShellDialogs\Native\Properties\IPropertyDescription.cs" />
+    <Compile Include="ComShellDialogs\Native\Properties\IPropertyDescriptionList.cs" />
+    <Compile Include="ComShellDialogs\Native\Properties\IPropertyEnumType.cs" />
+    <Compile Include="ComShellDialogs\Native\Properties\IPropertyEnumTypeList.cs" />
+    <Compile Include="ComShellDialogs\Native\Properties\IPropertyStore.cs" />
+    <Compile Include="ComShellDialogs\Native\Properties\PropertyKey.cs" />
+    <Compile Include="ComShellDialogs\Native\Properties\PropVariant.cs" />
+    <Compile Include="ComShellDialogs\Native\Properties\PropVariantNativeMethods.cs" />
+    <Compile Include="ComShellDialogs\Utility.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\StrongName.snk">
