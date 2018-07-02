@@ -8,9 +8,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D93B8678-F756-4433-B13D-BBB877B837EF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{B0FC4593-7008-4DDA-9708-C6C13320A1D9}"
-	ProjectSection(SolutionItems) = preProject
-		StrongName.snk = StrongName.snk
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net", "net", "{F9FC8A31-6FE8-43EF-B45F-1FEDF2AF10BD}"
 EndProject

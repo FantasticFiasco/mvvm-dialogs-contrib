@@ -102,7 +102,6 @@
     <Compile Include="..\..\SolutionInfo.cs">
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
-    <Compile Include="DialogTypeLocators\SplitProjectNamingConventionDialogTypeLocator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\StrongName.snk">
@@ -114,8 +113,8 @@
     <CodeAnalysisDictionary Include="CustomDictionary.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="MvvmDialogs, Version=5.1.0.0, Culture=neutral, PublicKeyToken=3d3b9708589bc73e, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\MvvmDialogs.5.1.0\lib\net45\MvvmDialogs.dll</HintPath>
+    <Reference Include="MvvmDialogs, Version=5.0.0.0, Culture=neutral, PublicKeyToken=3d3b9708589bc73e, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MvvmDialogs.5.0.0\lib\net45\MvvmDialogs.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
