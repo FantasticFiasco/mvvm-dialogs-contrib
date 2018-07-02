@@ -29,6 +29,8 @@
             <Word>GetCount</Word>
             <Word>HResult</Word>
             <Word>IShellItemArray</Word>
+            <Word>GetItemAt</Word>
+            <Word>SHCreateItemFromParsingName</Word>
             
         </Recognized>
 

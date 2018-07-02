@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Runtime.InteropServices;
 
 namespace MvvmDialogs.ComShellDialogs
@@ -23,6 +24,8 @@ namespace MvvmDialogs.ComShellDialogs
                 Marshal.ReleaseComObject( nfod );
             }
         }
+
+        private static readonly HResult HResult_Win32_Canceled = Utility.HResultFromWin32Error( (UInt32)Win32ErrorCode.Cancelled );
 
         private static String ShowDialogInner(IFileOpenDialog dialog, IntPtr parentWindowHandle, String title, String initialDirectory)
         {
@@ -50,22 +53,23 @@ namespace MvvmDialogs.ComShellDialogs
             }
 
             HResult result = dialog.Show( parentWindowHandle );
-
-            HResult cancelledAsHResult = Utility.HResultFromWin32( (int)HResult.Win32ErrorCanceled );
-            if( result == cancelledAsHResult )
+            if( result == HResult.Ok )
             {
-                // Cancelled
-                return null;
-            }
-            else
-            {
-                // OK
-
                 IShellItemArray resultsArray;
                 dialog.GetResults( out resultsArray );
 
                 String[] fileNames = Utility.GetFileNames( resultsArray );
                 return fileNames.Length == 0 ? null : fileNames[0];
+            }
+            else if( result == HResult_Win32_Canceled )
+            {
+                // Cancelled by user.
+                return null;
+            }
+            else
+            {
+                UInt32 win32ErrorCode = Utility.Win32ErrorFromHResult( (UInt32)result );
+                throw new Win32Exception( error: (Int32)win32ErrorCode );
             }
         }
     }

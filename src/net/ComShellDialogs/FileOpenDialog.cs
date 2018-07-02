@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Runtime.InteropServices;
 
 namespace MvvmDialogs.ComShellDialogs
@@ -54,6 +55,8 @@ namespace MvvmDialogs.ComShellDialogs
             }
         }
 
+        private static readonly HResult HResult_Win32_Canceled = Utility.HResultFromWin32Error( (UInt32)Win32ErrorCode.Cancelled );
+
         private static String[] ShowDialogInner(IFileOpenDialog dialog, IntPtr parentWindowHandle, String title, String initialDirectory, String defaultFileName, IReadOnlyCollection<Filter> filters, Int32 selectedFilterZeroBasedIndex, FileOpenOptions flags)
         {
             flags = flags |
@@ -85,22 +88,23 @@ namespace MvvmDialogs.ComShellDialogs
             Utility.SetFilters( dialog, filters, selectedFilterZeroBasedIndex );
 
             HResult result = dialog.Show( parentWindowHandle );
-
-            HResult cancelledAsHResult = Utility.HResultFromWin32( (int)HResult.Win32ErrorCanceled );
-            if( result == cancelledAsHResult )
+            if( result == HResult.Ok )
             {
-                // Cancelled
-                return null;
-            }
-            else
-            {
-                // OK
-
                 IShellItemArray resultsArray;
                 dialog.GetResults( out resultsArray );
 
                 String[] fileNames = Utility.GetFileNames( resultsArray );
                 return fileNames;
+            }
+            else if( result == HResult_Win32_Canceled )
+            {
+                // Cancelled by user.
+                return null;
+            }
+            else
+            {
+                UInt32 win32ErrorCode = Utility.Win32ErrorFromHResult( (UInt32)result );
+                throw new Win32Exception( error: (Int32)win32ErrorCode );
             }
         }
     }

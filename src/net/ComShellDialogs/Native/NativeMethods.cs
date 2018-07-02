@@ -6,13 +6,12 @@ namespace MvvmDialogs.ComShellDialogs
     internal static class ShellNativeMethods
     {
         [DllImport( "shell32.dll", CharSet = CharSet.Unicode, SetLastError = true )]
-        internal static extern HResult SHCreateItemFromParsingName(
-            [MarshalAs( UnmanagedType.LPWStr )] string path,
-            // The following parameter is not used - binding context.
-            IntPtr pbc,
-            ref Guid riid,
-            [MarshalAs( UnmanagedType.Interface )] out IShellItem2 shellItem);
-
-
+        internal static extern HResult SHCreateItemFromParsingName
+        (
+            [MarshalAs( UnmanagedType.LPWStr )] String displayNameOrPath,
+            IntPtr bindContext,
+            ref Guid interfaceId,
+            [MarshalAs( UnmanagedType.Interface, IidParameterIndex = 2 )] out IShellItem2 shellItem
+        );
     }
 }

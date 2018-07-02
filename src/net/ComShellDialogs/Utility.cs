@@ -10,13 +10,15 @@ namespace MvvmDialogs.ComShellDialogs
         {
             UInt32 count;
             HResult hresult = items.GetCount( out count );
-            if( hresult != HResult.Ok ) throw new InvalidOperationException( "IShellItemArray.GetCount failed. HResult: " + hresult ); // TODO: Will this ever happen?
+            if( hresult != HResult.Ok ) throw new InvalidOperationException( "IShellItemArray.GetCount failed. HResult: " + hresult );
 
             String[] fileNames = new String[ count ];
 
-            for( int i = 0; i < count; i++ )
+            for( UInt32 i = 0; i < count; i++ )
             {
-                IShellItem shellItem = Utility.GetShellItemAt( items, i );
+                HResult result = items.GetItemAt( i, out IShellItem shellItem );
+                if( result != HResult.Ok ) throw new InvalidOperationException( "IShellItemArray.GetItemAt( " + i + " ) failed. HResult: " + hresult );
+
                 String fileName = Utility.GetFileNameFromShellItem( shellItem );
 
                 fileNames[i] = fileName;
@@ -32,28 +34,58 @@ namespace MvvmDialogs.ComShellDialogs
             Guid ishellItem2GuidCopy = _ishellItem2Guid;
 
             IShellItem2 shellItem;
-            HResult hresult = ShellNativeMethods.SHCreateItemFromParsingName( value, IntPtr.Zero, ref ishellItem2GuidCopy, out shellItem );
-            if( hresult == HResult.Ok )
+            HResult result = ShellNativeMethods.SHCreateItemFromParsingName( value, IntPtr.Zero, ref ishellItem2GuidCopy, out shellItem );
+            if( result == HResult.Ok )
             {
                 return shellItem;
             }
             else
             {
-                // TODO: Handle HRESULT error codes?
+                // TODO: Ideally we'd interrogate each Win32 error to decide if this function should return null (e.g. nonsensical filename) or throw (some system error).
+                // But that takes too much effort, so just always return null for now.
                 return null;
             }
         }
 
-        public static HResult HResultFromWin32(int win32ErrorCode)
+        const UInt32 HResult_Facility_Mask    = 0x07FF_0000u;
+        const UInt32 HResult_Facility_Win32   = 0x0007_0000u;
+        const UInt32 HResult_Severity_Failure = 0x8000_0000u;
+        const UInt32 HResult_Code_Mask        = 0x0000_FFFFu;
+
+        public static HResult HResultFromWin32Error(UInt32 win32ErrorCode)
         {
-            const int FacilityWin32 = 7;
-
-            if( win32ErrorCode > 0 )
+            // HResult's can encompass a Win32 error code. See https://en.wikipedia.org/wiki/HRESULT
+            if( (Int32)win32ErrorCode > 0 )
             {
-                win32ErrorCode = (int)( ( (uint)win32ErrorCode & 0x0000FFFF ) | ( FacilityWin32 << 16 ) | 0x80000000 );
-            }
-            return (HResult)win32ErrorCode;
+                UInt32 win32Masked = win32ErrorCode & HResult_Code_Mask;
 
+                UInt32 hresult = HResult_Severity_Failure | HResult_Facility_Win32 | win32Masked;
+                return (HResult)hresult;
+            }
+
+            return (HResult)win32ErrorCode; // TODO: Is this correct?
+        }
+
+        public static UInt32 Win32ErrorFromHResult(UInt32 hresult)
+        {
+            Boolean isFailure = ( hresult & HResult_Severity_Failure ) == HResult_Severity_Failure;
+            Boolean isWin32   = ( hresult & HResult_Facility_Win32   ) == HResult_Facility_Win32;
+
+            if( isWin32 )
+            {
+                if( isFailure )
+                {
+                    return hresult & HResult_Code_Mask;
+                }
+                else
+                {
+                    return 0; // ERROR_SUCCESS
+                }
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException( nameof(hresult), hresult, message: "Value is not a Win32 error HRESULT." );
+            }
         }
 
         public static String GetFileNameFromShellItem(IShellItem item)
@@ -67,14 +99,6 @@ namespace MvvmDialogs.ComShellDialogs
                 Marshal.FreeCoTaskMem( pszString );
             }
             return filename;
-        }
-
-        public static IShellItem GetShellItemAt(IShellItemArray array, int i)
-        {
-            IShellItem result;
-            uint index = (uint)i;
-            array.GetItemAt( index, out result );
-            return result;
         }
 
         public static void SetFilters(IFileDialog dialog, IReadOnlyCollection<Filter> filters, Int32 selectedFilterZeroBasedIndex)

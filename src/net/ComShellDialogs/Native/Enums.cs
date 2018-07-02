@@ -10,6 +10,33 @@ namespace MvvmDialogs.ComShellDialogs
         SICHINT_ALLFIELDS = unchecked((int)0x80000000)
     }
 
+    internal enum Win32ErrorCode : UInt32
+    {
+        // https://msdn.microsoft.com/en-us/library/cc231199.aspx?f=255&MSPPError=-2147217396
+        Success = 0,
+        InvalidFunction = 1,
+        FileNotFound = 2,
+        PathNotFound = 3,
+        TooManyOpenFiles = 4,
+        AccessDenied = 5,
+        InvalidHandle = 6,
+        AreaTrashed = 7,
+        NotEnoughMemory = 8,
+        InvalidBlock = 9,
+        BadEnvironment = 0xA,
+        BadFormat = 0xB,
+        InvalidAccess = 0xC,
+        InvalidData = 0xD,
+        OutOfMemory = 0xE,
+        InvalidDrive = 0xF,
+        CurrentDirectory = 0x10,
+        // ....
+        Cancelled = 0x4C7,
+        UserMappedFile = 0x4C8,
+        ConnectionRefused = 0x4C9,
+        // ...
+    }
+
     internal enum HResult
     {
         /// <summary>     
@@ -56,11 +83,6 @@ namespace MvvmDialogs.ComShellDialogs
         /// NO_OBJECT
         /// </summary>
         NoObject = unchecked((int)0x800401E5),
-
-        /// <summary>
-        /// Win32 Error code: ERROR_CANCELLED
-        /// </summary>
-        Win32ErrorCanceled = 1223,
 
         /// <summary>
         /// ERROR_CANCELLED
