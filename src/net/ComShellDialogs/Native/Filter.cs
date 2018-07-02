@@ -5,17 +5,20 @@ using System.Text;
 
 namespace MvvmDialogs.ComShellDialogs
 {
+	/// <summary>A file type fiter option for File Save and File Open dialogs.</summary>
 	public class Filter
 	{
 		private static readonly Char[] _extensionTrimStart = new Char[] { ' ', '.', ';' };
 
 		private static readonly Char[] _extensionTrim = new Char[] { ' ', '.', ';', '*', '\\', '/', '?' };
 
+		/// <summary>Constructs a new File instance with the specified user-readable display name and params array of file extensions.</summary>
 		public Filter(String displayName, params String[] extensions)
 			: this( displayName, (IEnumerable<String>)extensions )
 		{
 		}
 
+		/// <summary>Constructs a new File instance with the specified user-readable display name and series of file extensions.</summary>
 		public Filter(String displayName, IEnumerable<String> extensions)
 		{
 			if( String.IsNullOrWhiteSpace(displayName) ) throw new ArgumentNullException(nameof(displayName));
@@ -32,7 +35,10 @@ namespace MvvmDialogs.ComShellDialogs
 				.ToList(); // make a copy to prevent possible changes
 		}
 
+		/// <summary>The user-readable file type filter display name, displayed before the list of file name extensions.</summary>
 		public String DisplayName { get; }
+
+		/// <summary>The list of file name extensions. Each string value is the raw extension without an asterisk or dot prefix.</summary>
 		public IReadOnlyList<String> Extensions { get; }
 
 		/// <summary>Returns null if the string couldn't be parsed.</summary>
@@ -89,6 +95,8 @@ namespace MvvmDialogs.ComShellDialogs
 			}
 		}
 
+		/// <summary>Returns a textual representation of the filter suitable for direct display to the user on-screen. The format is &quot;DisplayName (*.ext1, *.ext2)&quot;.</summary>
+		/// <returns></returns>
 		public override String ToString()
 		{
 			StringBuilder sb = new StringBuilder();
