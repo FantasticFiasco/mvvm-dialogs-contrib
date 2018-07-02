@@ -1,6 +1,8 @@
 ﻿//#if PROPERTIES
 
 using System;
+using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using System.Runtime.InteropServices;
 
 namespace MvvmDialogs.ComShellDialogs
@@ -22,22 +24,24 @@ namespace MvvmDialogs.ComShellDialogs
         /// <summary>
         /// A unique GUID for the property
         /// </summary>
+        [SuppressMessage( "Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode" )]
         public Guid FormatId
         {
             get
             {
-                return formatId;
+                return this.formatId;
             }
         }
 
         /// <summary>
         ///  Property identifier (PID)
         /// </summary>
+        [SuppressMessage( "Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode" )]
         public Int32 PropertyId
         {
             get
             {
-                return propertyId;
+                return this.propertyId;
             }
         }
 
@@ -50,6 +54,7 @@ namespace MvvmDialogs.ComShellDialogs
         /// </summary>
         /// <param name="formatId">A unique GUID for the property</param>
         /// <param name="propertyId">Property identifier (PID)</param>
+        [SuppressMessage( "Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode" )]
         public PropertyKey(Guid formatId, Int32 propertyId)
         {
             this.formatId = formatId;
@@ -61,6 +66,7 @@ namespace MvvmDialogs.ComShellDialogs
         /// </summary>
         /// <param name="formatId">A string represenstion of a GUID for the property</param>
         /// <param name="propertyId">Property identifier (PID)</param>
+        [SuppressMessage( "Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode" )]
         public PropertyKey(string formatId, Int32 propertyId)
         {
             this.formatId = new Guid(formatId);
@@ -91,7 +97,7 @@ namespace MvvmDialogs.ComShellDialogs
         /// <returns></returns>
         public override int GetHashCode()
         {
-            return formatId.GetHashCode() ^ propertyId;
+            return this.formatId.GetHashCode() ^ this.propertyId;
         }
 
         /// <summary>
@@ -108,7 +114,7 @@ namespace MvvmDialogs.ComShellDialogs
                 return false;
 
             PropertyKey other = (PropertyKey)obj;
-            return other.formatId.Equals(formatId) && (other.propertyId == propertyId);
+            return other.formatId.Equals(this.formatId) && (other.propertyId == this.propertyId);
         }
 
         /// <summary>
@@ -139,9 +145,7 @@ namespace MvvmDialogs.ComShellDialogs
         /// <returns>String representing the property key</returns>        
         public override string ToString()
         {
-            return string.Format(System.Globalization.CultureInfo.InvariantCulture,
-                "{0}, {1}",
-                formatId.ToString("B"), propertyId);
+            return string.Format(CultureInfo.InvariantCulture, "{0}, {1}", this.formatId.ToString("B"), this.propertyId);
         }
 
         #endregion

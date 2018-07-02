@@ -8,10 +8,6 @@ namespace MvvmDialogs.ComShellDialogs
 	/// <summary>A file type fiter option for File Save and File Open dialogs.</summary>
 	public class Filter
 	{
-		private static readonly Char[] _extensionTrimStart = new Char[] { ' ', '.', ';' };
-
-		private static readonly Char[] _extensionTrim = new Char[] { ' ', '.', ';', '*', '\\', '/', '?' };
-
 		/// <summary>Constructs a new File instance with the specified user-readable display name and params array of file extensions.</summary>
 		public Filter(String displayName, params String[] extensions)
 			: this( displayName, (IEnumerable<String>)extensions )
@@ -31,6 +27,7 @@ namespace MvvmDialogs.ComShellDialogs
 					s.StartsWith( "*.", StringComparison.OrdinalIgnoreCase ) ? s.Substring(2) :
 					s.StartsWith( "." , StringComparison.OrdinalIgnoreCase ) ? s.Substring(1) : s
 				)
+				.Select( s => s.Trim() ) // Trim any now-exposed (former interior) whitespace
 				.Where( s => !String.IsNullOrWhiteSpace( s ) )
 				.ToList(); // make a copy to prevent possible changes
 		}

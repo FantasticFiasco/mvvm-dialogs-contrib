@@ -7,16 +7,16 @@ namespace MvvmDialogs.ComShellDialogs
 	public static class FolderBrowserDialog
 	{
 		/// <summary>Shows the folder browser dialog. Returns null if the dialog cancelled. Otherwise returns the selected path.</summary>
-		/// <param name="parentHWnd">Handle to the Win32 window that will parent the dialog. This value can be NULL (IntPtr.Zero).</param>
+		/// <param name="parentWindowHandle">Handle to the Win32 window that will parent the dialog. This value can be NULL (IntPtr.Zero).</param>
 		/// <param name="title">Text to display in the title bar of the window. This value may be null.</param>
 		/// <param name="initialDirectory">Path to the initial directory to display in the dialog. This value may be null.</param>
 		/// <returns>The full path to the selected directory.</returns>
-		public static String ShowDialog(IntPtr parentHWnd, String title, String initialDirectory)
+		public static String ShowDialog(IntPtr parentWindowHandle, String title, String initialDirectory)
 		{
 			NativeFileOpenDialog nfod = new NativeFileOpenDialog();
 			try
 			{
-				return ShowDialogInner( nfod, parentHWnd, title, initialDirectory );
+				return ShowDialogInner( nfod, parentWindowHandle, title, initialDirectory );
 			}
 			finally
 			{
@@ -24,7 +24,7 @@ namespace MvvmDialogs.ComShellDialogs
 			}
 		}
 
-		private static String ShowDialogInner(IFileOpenDialog dialog, IntPtr parentHWnd, String title, String initialDirectory)
+		private static String ShowDialogInner(IFileOpenDialog dialog, IntPtr parentWindowHandle, String title, String initialDirectory)
 		{
 			//IFileDialog ifd = dialog;
 			FileOpenOptions flags =
@@ -49,7 +49,7 @@ namespace MvvmDialogs.ComShellDialogs
 				}
 			}
 
-			HResult result = dialog.Show( parentHWnd );
+			HResult result = dialog.Show( parentWindowHandle );
 
 			HResult cancelledAsHResult = Utility.HResultFromWin32( (int)HResult.Win32ErrorCanceled );
 			if( result == cancelledAsHResult )

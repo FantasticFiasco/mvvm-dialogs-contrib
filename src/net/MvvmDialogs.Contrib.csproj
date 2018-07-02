@@ -134,6 +134,7 @@
     <Compile Include="ComShellDialogs\Native\Properties\PropVariant.cs" />
     <Compile Include="ComShellDialogs\Native\Properties\PropVariantNativeMethods.cs" />
     <Compile Include="ComShellDialogs\Utility.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\StrongName.snk">

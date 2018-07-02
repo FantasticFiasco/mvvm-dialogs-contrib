@@ -10,7 +10,7 @@ namespace MvvmDialogs.ComShellDialogs
 		{
 			UInt32 count;
 			HResult hresult = items.GetCount( out count );
-			if( hresult != HResult.Ok ) throw new Exception( "IShellItemArray.GetCount failed. HResult: " + hresult ); // TODO: Will this ever happen?
+			if( hresult != HResult.Ok ) throw new InvalidOperationException( "IShellItemArray.GetCount failed. HResult: " + hresult ); // TODO: Will this ever happen?
 
 			String[] fileNames = new String[ count ];
 

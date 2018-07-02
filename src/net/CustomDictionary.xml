@@ -21,8 +21,15 @@
             (for example 'FileName' -> 'Filename').
         -->
         <Recognized>
-            <!-- Example: -->
-            <!-- <Word>whatever</Word> -->
+            
+            <Word>Mvvm</Word>
+            <Word>Contrib</Word>
+
+            <!-- Source code symbols used in exposed strings: -->
+            <Word>GetCount</Word>
+            <Word>HResult</Word>
+            <Word>IShellItemArray</Word>
+            
         </Recognized>
 
         <!-- 
@@ -34,6 +41,9 @@
         <Deprecated>
             <!-- Example: -->
             <!-- <Term PreferredAlternate="EnterpriseServices">complus</Term> -->
+
+            <Term PreferredAlternate="Multi">multi</Term> <!-- See https://stackoverflow.com/questions/7854518/ca1704-microsoft-seems-to-be-blocking-the-word-multi -->
+            
         </Deprecated>
 
         <!-- 
