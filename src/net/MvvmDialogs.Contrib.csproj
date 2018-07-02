@@ -102,6 +102,7 @@
     <Compile Include="..\..\SolutionInfo.cs">
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
+    <Compile Include="ComShellDialogs\ComShellDialogFactory.cs" />
     <Compile Include="ComShellDialogs\FileOpenDialog.cs" />
     <Compile Include="ComShellDialogs\FileSaveDialog.cs" />
     <Compile Include="ComShellDialogs\FolderBrowserDialog.cs" />
