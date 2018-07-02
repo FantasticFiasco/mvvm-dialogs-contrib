@@ -7,10 +7,10 @@ using System.Runtime.InteropServices;
 
 namespace MvvmDialogs.ComShellDialogs
 {
-	/// <summary>
-	/// Defines a unique key for a Shell Property
-	/// </summary>
-	[StructLayout(LayoutKind.Sequential, Pack = 4)]
+    /// <summary>
+    /// Defines a unique key for a Shell Property
+    /// </summary>
+    [StructLayout(LayoutKind.Sequential, Pack = 4)]
     internal struct PropertyKey : IEquatable<PropertyKey>
     {
         #region Private Fields

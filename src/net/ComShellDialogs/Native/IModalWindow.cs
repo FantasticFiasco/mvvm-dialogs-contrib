@@ -4,13 +4,13 @@ using System.Runtime.InteropServices;
 
 namespace MvvmDialogs.ComShellDialogs
 {
-	[ComImport]
-	[Guid( ShellIIDGuid.IModalWindow )]
-	[InterfaceType( ComInterfaceType.InterfaceIsIUnknown )]
-	internal interface IModalWindow
-	{
-		[MethodImpl( MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime ),
-		PreserveSig]
-		HResult Show([In] IntPtr parent);
-	}
+    [ComImport]
+    [Guid( ShellIIDGuid.IModalWindow )]
+    [InterfaceType( ComInterfaceType.InterfaceIsIUnknown )]
+    internal interface IModalWindow
+    {
+        [MethodImpl( MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime ),
+        PreserveSig]
+        HResult Show([In] IntPtr parent);
+    }
 }

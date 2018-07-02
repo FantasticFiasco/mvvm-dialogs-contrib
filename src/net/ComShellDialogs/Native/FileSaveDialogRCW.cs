@@ -3,11 +3,11 @@ using System.Runtime.InteropServices;
 
 namespace MvvmDialogs.ComShellDialogs
 {
-	[ComImport]
-	[ClassInterface( ClassInterfaceType.None )]
-	[TypeLibType( TypeLibTypeFlags.FCanCreate )]
-	[Guid( ShellCLSIDGuid.FileSaveDialog )]
-	internal class FileSaveDialogRCW
-	{
-	}
+    [ComImport]
+    [ClassInterface( ClassInterfaceType.None )]
+    [TypeLibType( TypeLibTypeFlags.FCanCreate )]
+    [Guid( ShellCLSIDGuid.FileSaveDialog )]
+    internal class FileSaveDialogRCW
+    {
+    }
 }
