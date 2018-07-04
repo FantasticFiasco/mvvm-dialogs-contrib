@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace MvvmDialogs.ComShellDialogs
+﻿namespace MvvmDialogs.ComShellDialogs
 {
     internal static class ShellIIDGuid
     {

@@ -15,8 +15,8 @@ namespace MvvmDialogs.ComShellDialogs
     {
         #region Private Fields
 
-        private Guid formatId;
-        private Int32 propertyId;
+        private readonly Guid formatId;
+        private readonly Int32 propertyId;
 
         #endregion
 
