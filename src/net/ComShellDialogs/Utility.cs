@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using MvvmDialogs.Contrib.ComShellDialogs.Native;
 
-namespace MvvmDialogs.ComShellDialogs
+namespace MvvmDialogs.Contrib.ComShellDialogs
 {
     internal static class Utility
     {

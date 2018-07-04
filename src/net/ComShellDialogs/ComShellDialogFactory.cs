@@ -1,14 +1,14 @@
 using System;
 using System.Windows;
 using System.Windows.Interop;
-
+using MvvmDialogs.Contrib.ComShellDialogs.Native;
 using MvvmDialogs.FrameworkDialogs;
 using MvvmDialogs.FrameworkDialogs.FolderBrowser;
 using MvvmDialogs.FrameworkDialogs.MessageBox;
 using MvvmDialogs.FrameworkDialogs.OpenFile;
 using MvvmDialogs.FrameworkDialogs.SaveFile;
 
-namespace MvvmDialogs.ComShellDialogs
+namespace MvvmDialogs.Contrib.ComShellDialogs
 {
     /// <summary>Implementation of IFrameworkDialogFactory that uses the COM Shell API dialogs.</summary>
     public class ComShellDialogFactory : IFrameworkDialogFactory
@@ -74,10 +74,10 @@ namespace MvvmDialogs.ComShellDialogs
 
             if( this.settings.Multiselect )
             {
-                String fileName = FileOpenDialog.ShowSingleSelectDialog( owner.GetWindowHandle(), this.settings.Title, this.settings.InitialDirectory, this.settings.FileName, filters, filterIndex );
-                if( fileName != null )
+                String[] fileNames = FileOpenDialog.ShowMultiSelectDialog(owner.GetWindowHandle(), this.settings.Title, this.settings.InitialDirectory, this.settings.FileName, filters, filterIndex);
+                if ( fileNames != null )
                 {
-                    this.settings.FileName = fileName;
+                    this.settings.FileNames = fileNames;
                     return true;
                 }
                 else
@@ -87,10 +87,10 @@ namespace MvvmDialogs.ComShellDialogs
             }
             else
             {
-                String[] fileNames = FileOpenDialog.ShowMultiSelectDialog( owner.GetWindowHandle(), this.settings.Title, this.settings.InitialDirectory, this.settings.FileName, filters, filterIndex );
-                if( fileNames != null )
+                String fileName = FileOpenDialog.ShowSingleSelectDialog(owner.GetWindowHandle(), this.settings.Title, this.settings.InitialDirectory, this.settings.FileName, filters, filterIndex);
+                if( fileName != null )
                 {
-                    this.settings.FileNames = fileNames;
+                    this.settings.FileName = fileName;
                     return true;
                 }
                 else

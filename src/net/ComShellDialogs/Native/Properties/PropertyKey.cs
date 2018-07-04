@@ -5,7 +5,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Runtime.InteropServices;
 
-namespace MvvmDialogs.ComShellDialogs
+namespace MvvmDialogs.Contrib.ComShellDialogs.Native.Properties
 {
     /// <summary>
     /// Defines a unique key for a Shell Property

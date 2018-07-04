@@ -2,8 +2,9 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
+using MvvmDialogs.Contrib.ComShellDialogs.Native.Properties;
 
-namespace MvvmDialogs.ComShellDialogs
+namespace MvvmDialogs.Contrib.ComShellDialogs.Native
 {
     // Disable warning if a method declaration hides another inherited from a parent COM interface
     // To successfully import a COM interface, all inherited methods need to be declared again with 

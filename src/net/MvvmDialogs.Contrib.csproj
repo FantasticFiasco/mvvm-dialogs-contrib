@@ -7,7 +7,7 @@
     <ProjectGuid>{E66CF284-E093-4CA5-90B4-07F624EE15EE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MvvmDialogs</RootNamespace>
+    <RootNamespace>MvvmDialogs.Contrib</RootNamespace>
     <AssemblyName>MvvmDialogs.Contrib</AssemblyName>
     <TargetFrameworkVersion Condition="'$(TargetFrameworkVersion)' == ''">v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

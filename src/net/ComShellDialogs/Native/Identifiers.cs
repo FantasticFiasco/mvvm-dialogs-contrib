@@ -1,4 +1,4 @@
-﻿namespace MvvmDialogs.ComShellDialogs
+﻿namespace MvvmDialogs.Contrib.ComShellDialogs.Native
 {
     internal static class ShellIIDGuid
     {

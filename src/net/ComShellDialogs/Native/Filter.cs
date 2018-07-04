@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MvvmDialogs.ComShellDialogs
+namespace MvvmDialogs.Contrib.ComShellDialogs.Native
 {
     /// <summary>A file type fiter option for File Save and File Open dialogs.</summary>
     public class Filter

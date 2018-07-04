@@ -7,7 +7,7 @@
 [assembly: AssemblyProduct("MVVM Dialogs Contrib")]
 [assembly: AssemblyCopyright("Copyright © 2017-2018 MVVM Dialogs contributors")]
 [assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("en-US")]
+[assembly: AssemblyCulture("")]
 
 // Assembly version
 [assembly: AssemblyVersion("0.1.0")]

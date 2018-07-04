@@ -1,8 +1,9 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
+using MvvmDialogs.Contrib.ComShellDialogs.Native;
 
-namespace MvvmDialogs.ComShellDialogs
+namespace MvvmDialogs.Contrib.ComShellDialogs
 {
     /// <summary>Provides static methods to display a COM Shell API Folder Browser dialog window. This dialog is the 2Windows File Explorer-style (2-pane) folder browser dialog introduced in Windows Vista and not the single tree-view based dialog from older versions of Windows.</summary>
     internal static class FolderBrowserDialog

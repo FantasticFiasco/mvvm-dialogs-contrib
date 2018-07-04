@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
+using MvvmDialogs.Contrib.ComShellDialogs.Native;
 
-namespace MvvmDialogs.ComShellDialogs
+namespace MvvmDialogs.Contrib.ComShellDialogs
 {
     /// <summary>Provides static methods to display a COM Shell API File Open dialog window.</summary>
     internal static class FileOpenDialog

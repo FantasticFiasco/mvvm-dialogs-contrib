@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MvvmDialogs.ComShellDialogs
+namespace MvvmDialogs.Contrib.ComShellDialogs.Native
 {
     internal enum SICHINTF
     {
