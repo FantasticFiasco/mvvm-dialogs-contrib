@@ -126,6 +126,4 @@ namespace MvvmDialogs.ComShellDialogs
             return specs;
         }
     }
-
-    
 }

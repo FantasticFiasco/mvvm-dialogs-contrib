@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 namespace MvvmDialogs.ComShellDialogs
 {
     /// <summary>Provides static methods to display a COM Shell API File Open dialog window.</summary>
-    public static class FileOpenDialog
+    internal static class FileOpenDialog
     {
         /// <summary>Shows the file open dialog for multiple filename selections. Returns null if the dialog cancelled. Otherwise returns all selected paths.</summary>
         /// <param name="parentWindowHandle">Handle (hWnd) to the Win32 window that will parent the dialog. This value can be NULL (IntPtr.Zero).</param>

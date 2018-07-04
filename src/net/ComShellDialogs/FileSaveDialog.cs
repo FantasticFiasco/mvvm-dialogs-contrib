@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 namespace MvvmDialogs.ComShellDialogs
 {
     /// <summary>Provides static methods to display a COM Shell API File Save dialog window.</summary>
-    public static class FileSaveDialog
+    internal static class FileSaveDialog
     {
         /// <summary>Shows the file save dialog. Returns null if the dialog cancelled. Otherwise returns the file path as specified by the user.</summary>
         /// <param name="parentWindowHandle">Handle to the Win32 window that will parent the dialog. This value can be NULL (IntPtr.Zero).</param>
