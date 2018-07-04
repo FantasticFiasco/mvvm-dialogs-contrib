@@ -59,7 +59,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="MvvmDialogs" Version="5.1.0" />
+    <PackageReference Include="MvvmDialogs" Version="5.*" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\SolutionInfo.cs">
