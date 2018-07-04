@@ -16,12 +16,7 @@
     <tags>wpf uwp mvvm dialog window messagebox openfiledialog savefiledialog folderbrowserdialog messagedialog contentdialog fileopenpicker filesavepicker folderpicker</tags>
   </metadata>
   <files>
-    <!-- .NET -->
-    <file src="src\net\bin\Release\net35\MvvmDialogs.Contrib.dll" target="lib\net35\MvvmDialogs.Contrib.dll" />
-    <file src="src\net\bin\Release\net35\MvvmDialogs.Contrib.xml" target="lib\net35\MvvmDialogs.Contrib.xml" />
-    <file src="src\net\bin\Release\net40\MvvmDialogs.Contrib.dll" target="lib\net40\MvvmDialogs.Contrib.dll" />
-    <file src="src\net\bin\Release\net40\MvvmDialogs.Contrib.xml" target="lib\net40\MvvmDialogs.Contrib.xml" />
-    <file src="src\net\bin\Release\net45\MvvmDialogs.Contrib.dll" target="lib\net45\MvvmDialogs.Contrib.dll" />
-    <file src="src\net\bin\Release\net45\MvvmDialogs.Contrib.xml" target="lib\net45\MvvmDialogs.Contrib.xml" />
+    <file src="src\net\bin\Release\MvvmDialogs.Contrib.dll" target="lib\net45\MvvmDialogs.Contrib.dll" />
+    <file src="src\net\bin\Release\MvvmDialogs.Contrib.xml" target="lib\net45\MvvmDialogs.Contrib.xml" />
   </files>
 </package>
