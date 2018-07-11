@@ -22,7 +22,7 @@ namespace MvvmDialogs.Contrib.ComShellDialogs
             return new FolderBrowserComShellDialog( settings );
         }
 
-        /// <summary>Create an instance of the Windows message box. This method is not implemented and throws NotSupportedException.</summary>
+        /// <summary>Create an instance of the default Windows message box.</summary>
         /// <param name="settings">The settings for the message box.</param>
         public IMessageBox CreateMessageBox(MessageBoxSettings settings)
         {
