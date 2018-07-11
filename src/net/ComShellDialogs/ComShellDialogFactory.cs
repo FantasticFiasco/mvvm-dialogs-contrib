@@ -26,7 +26,9 @@ namespace MvvmDialogs.Contrib.ComShellDialogs
         /// <param name="settings">The settings for the message box.</param>
         public IMessageBox CreateMessageBox(MessageBoxSettings settings)
         {
-            throw new NotSupportedException();
+            if( settings == null ) throw new ArgumentNullException(nameof(settings));
+
+            return new MessageBoxWrapper( settings );
         }
 
         /// <summary>Create an instance of the Windows open file dialog.</summary>
