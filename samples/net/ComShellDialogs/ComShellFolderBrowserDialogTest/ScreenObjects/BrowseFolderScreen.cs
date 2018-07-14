@@ -14,7 +14,7 @@ namespace ComShellFolderBrowserDialogTest.ScreenObjects
 
         public virtual void ClickOK()
         {
-            Window.Get<Button>(SearchCriteria.ByText("OK")).Click();
+            Window.Get<Button>(SearchCriteria.ByText("Select Folder")).Click();
         }
 
         public virtual void ClickCancel()

@@ -49,6 +49,11 @@
     <PackageReference Include="TestStack.White.ScreenObjects" Version="0.13.3" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Features\Confirmation.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Confirmation.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\ConfirmationSteps.cs" />
     <Compile Include="MainWindowViewModelTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -56,8 +61,10 @@
     <Compile Include="ScreenObjects\MessageBoxScreen.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="Features\Confirmation.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Confirmation.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>

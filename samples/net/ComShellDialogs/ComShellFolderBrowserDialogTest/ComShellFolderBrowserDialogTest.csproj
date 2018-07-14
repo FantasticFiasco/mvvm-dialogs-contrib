@@ -60,6 +60,7 @@
     <Compile Include="ScreenObjects\MainScreen.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="Features\BrowseFolder.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>BrowseFolder.feature.cs</LastGenOutput>

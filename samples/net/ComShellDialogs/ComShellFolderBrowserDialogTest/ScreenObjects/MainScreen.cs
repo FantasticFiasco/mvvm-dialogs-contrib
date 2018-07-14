@@ -24,7 +24,7 @@ namespace ComShellFolderBrowserDialogTest.ScreenObjects
         public virtual BrowseFolderScreen ClickBrowse()
         {
             browseButton.Click();
-            return ScreenRepository.GetModal<BrowseFolderScreen>("Browse For Folder", Window, InitializeOption.NoCache);
+            return ScreenRepository.GetModal<BrowseFolderScreen>("This is a description", Window, InitializeOption.NoCache);
         }
     }
 }

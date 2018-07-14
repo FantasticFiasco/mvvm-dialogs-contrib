@@ -20,14 +20,14 @@ namespace ComShellSaveFileDialogTest.Features
             // ReSharper disable once AssignNullToNotNullAttribute
             string applicationFilePath = Path.Combine(
                 Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),
-                "Sample.SaveFileDialog.exe");
+                "ComShellSaveFileDialog.exe");
 
             return Application.Launch(applicationFilePath);
         }
 
         protected override MainScreen GetMainScreen(ScreenRepository screenRepository)
         {
-            return ScreenRepository.Get<MainScreen>("Sample - Save File Dialog", InitializeOption.NoCache);
+            return ScreenRepository.Get<MainScreen>("COM Shell - Save File Dialog", InitializeOption.NoCache);
         }
 
         [Given("I have selected to save a file")]

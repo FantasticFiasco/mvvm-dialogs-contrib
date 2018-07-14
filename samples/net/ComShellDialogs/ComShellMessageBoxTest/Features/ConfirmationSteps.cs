@@ -20,14 +20,14 @@ namespace ComShellMessageBoxTest.Features
             // ReSharper disable once AssignNullToNotNullAttribute
             string applicationFilePath = Path.Combine(
                 Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),
-                "Sample.MessageBox.exe");
+                "ComShellMessageBox.exe");
 
             return Application.Launch(applicationFilePath);
         }
 
         protected override MainScreen GetMainScreen(ScreenRepository screenRepository)
         {
-            return ScreenRepository.Get<MainScreen>("Sample - Message Box", InitializeOption.NoCache);
+            return ScreenRepository.Get<MainScreen>("COM Shell - Message Box", InitializeOption.NoCache);
         }
         
         [Given("confirmation with text is shown")]
