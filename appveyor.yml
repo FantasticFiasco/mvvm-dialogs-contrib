@@ -19,6 +19,10 @@ build_script:
 #---------------------------------#
 test:
   assemblies: '**\bin\Release\*Test.dll'
+  categories:
+    except:
+      - Manual
+
 
 #---------------------------------#
 #             artifacts           #
