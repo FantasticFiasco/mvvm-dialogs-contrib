@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     md:DialogServiceViews.IsRegistered="True"
     WindowStartupLocation="CenterScreen"
-    Title="Demo - Save File Dialog"
+    Title="Sample - Save File Dialog"
     Width="300"
     Height="200"
     DataContext="{Binding Source={StaticResource Locator}, Path=MainWindow}">
