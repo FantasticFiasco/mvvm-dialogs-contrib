@@ -6,6 +6,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and is followi
 
 ## Unreleased
 
+## 1.0.0 - 2018-07-15
+
 ### :zap: Added
 
 - Support COM shell framework dialogs, a contemporary alternative to the default WinForms dialogs (contribution by [@Dai](https://github.com/Jehoel))
