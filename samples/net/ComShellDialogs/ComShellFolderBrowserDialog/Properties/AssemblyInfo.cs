@@ -10,7 +10,7 @@ using System.Windows;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("ComShellFolderBrowserDialog")]
-[assembly: AssemblyCopyright("Copyright © 2009-2018 MVVM Dialogs contributors")]
+[assembly: AssemblyCopyright("Copyright © 2009-2019 MVVM Dialogs contributors")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
