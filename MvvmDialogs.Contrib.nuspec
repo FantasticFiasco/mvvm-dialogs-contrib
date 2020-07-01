@@ -21,5 +21,6 @@
   <files>
     <file src="src\net\bin\Release\MvvmDialogs.Contrib.dll" target="lib\net45\MvvmDialogs.Contrib.dll" />
     <file src="src\net\bin\Release\MvvmDialogs.Contrib.xml" target="lib\net45\MvvmDialogs.Contrib.xml" />
+    <file src="src\net\bin\Release\MvvmDialogs.Contrib.pdb" target="lib\net45\MvvmDialogs.Contrib.pdb" />
   </files>
 </package>

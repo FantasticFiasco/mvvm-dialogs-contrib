@@ -35,6 +35,7 @@ artifacts/
 
 # NuGet Packages
 *.nupkg
+*.snupkg
 **/packages/*
 
 # ReSharper
