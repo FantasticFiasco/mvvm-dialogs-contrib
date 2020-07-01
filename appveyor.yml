@@ -28,25 +28,29 @@ test:
 #             artifacts           #
 #---------------------------------#
 artifacts:
-  - path: '*.nupkg'
+  - path: '*.*nupkg'
     name: NuGet
-
-
-#---------------------------------#
-#            on finish            #
-#---------------------------------#
-on_finish:
-  - ps: Get-ChildItem -Path Failed_*.png -Recurse | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name }
+    type: NuGetPackage
 
 
 #---------------------------------#
 #              deploy             #
 #---------------------------------#
 deploy:
-  provider: NuGet
-  api_key:
-    secure: iw4U6OpEAxeZY5bNxWxK4RC+S2Jj6pvtLLyJ0b+YxpaZPoQbCAFZOXv9rfkzG109
-  skip_symbols: false
-  artifact: /.*\.nupkg/
-  on:
-    appveyor_repo_tag: true
+  - provider: GitHub
+    tag: ${APPVEYOR_REPO_TAG_NAME}
+    release: Release ${APPVEYOR_REPO_TAG_NAME}
+    description: TODO
+    auth_token:
+      secure: de2wnJZf6k7NY0XriDpf9BkrQ4MR5ZfDDWMM+H/K4OK3w0GpuJAMRj5PrO6tKu0K
+    artifact: NuGet
+    draft: true
+    on:
+      APPVEYOR_REPO_TAG: true
+  - provider: NuGet
+    api_key:
+      secure: iw4U6OpEAxeZY5bNxWxK4RC+S2Jj6pvtLLyJ0b+YxpaZPoQbCAFZOXv9rfkzG109
+    symbol_server: https://www.nuget.org
+    skip_symbols: false
+    on:
+      APPVEYOR_REPO_TAG: true
