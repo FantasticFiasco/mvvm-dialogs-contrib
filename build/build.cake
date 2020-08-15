@@ -1,4 +1,4 @@
-#load "build/utils.cake"
+#load "utils.cake"
 
 //////////////////////////////////////////////////////////////////////
 // ARGUMENTS
@@ -10,8 +10,8 @@ var target = Argument("target", "Default");
 // VARIABLES
 //////////////////////////////////////////////////////////////////////
 
-var solution = new FilePath("./MvvmDialogs.Contrib.sln");
-var netProject = new FilePath("./src/net/MvvmDialogs.Contrib.csproj");
+var solution = new FilePath("./../MvvmDialogs.Contrib.sln");
+var netProject = new FilePath("./../src/net/MvvmDialogs.Contrib.csproj");
 
 //////////////////////////////////////////////////////////////////////
 // TASKS
@@ -21,8 +21,8 @@ Task("Clean")
     .Description("Clean all files")
     .Does (() =>
     {
-	    CleanDirectories("./**/bin");
-	    CleanDirectories("./**/obj");
+	    CleanDirectories("./../**/bin");
+	    CleanDirectories("./../**/obj");
     });
 
 Task("Restore")
@@ -52,7 +52,7 @@ Task("Pack")
     .IsDependentOn("Build")
     .Does(() =>
     {
-        var version = GetAssemblyVersion("./SolutionInfo.cs");
+        var version = GetAssemblyVersion("./../SolutionInfo.cs");
         var branch = EnvironmentVariable("APPVEYOR_REPO_BRANCH");
 
         // Unless on master, this is a pre-release
@@ -63,7 +63,7 @@ Task("Pack")
         }
 
         NuGetPack(
-            "./MvvmDialogs.Contrib.nuspec",
+            "./../MvvmDialogs.Contrib.nuspec",
             new NuGetPackSettings
             {
                 Version = version,
