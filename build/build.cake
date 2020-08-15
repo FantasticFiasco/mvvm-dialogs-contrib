@@ -63,7 +63,7 @@ Task("Pack")
         }
 
         NuGetPack(
-            "./MvvmDialogs.Contrib.nuspec",
+            "./../MvvmDialogs.Contrib.nuspec",
             new NuGetPackSettings
             {
                 Version = version,
