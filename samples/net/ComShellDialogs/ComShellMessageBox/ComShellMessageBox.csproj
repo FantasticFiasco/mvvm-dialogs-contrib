@@ -51,7 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MvvmDialogs" Version="5.*" />
-    <PackageReference Include="MvvmLight" Version="5.4.1" />
+    <PackageReference Include="MvvmLight" Version="5.4.1.1" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
